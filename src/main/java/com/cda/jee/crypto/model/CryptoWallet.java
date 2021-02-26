@@ -12,10 +12,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CryptoWallet {
-	private int id;
-	private String name;
-	private String symbol;
-	private double currentPrice;
-	private String imageUrl;
-	private LocalDateTime lastUpdated;
+	private int idWallet;
+	private int idCrypto;
+	private double purchasePrice;
+	private double quantity;
+	private LocalDateTime purchaseDate;
 }
