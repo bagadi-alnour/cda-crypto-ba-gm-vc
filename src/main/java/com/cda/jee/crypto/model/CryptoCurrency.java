@@ -1,6 +1,8 @@
 package com.cda.jee.crypto.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,4 +20,12 @@ public class CryptoCurrency {
 	private double currentPrice;
 	private String imageUrl;
 	private LocalDateTime lastUpdated;
+	
+	private static List<CryptoCurrency> cryptoCurrenciesList = new ArrayList<>();
+	public static List<CryptoCurrency> getCryptoCurrenciesList() {
+		return cryptoCurrenciesList;
+	}
+	public static void setCryptoCurrenciesList(List<CryptoCurrency> cryptoCurrenciesList) {
+		CryptoCurrency.cryptoCurrenciesList = cryptoCurrenciesList;
+	}
 }
