@@ -9,29 +9,45 @@ import java.util.Properties;
 
 import com.cda.jee.crypto.dao.exception.DaoConfigurationException;
 
-public class DaoFactory {
+public class DaoConnection {
+	private static volatile DaoConnection instance;
+	private Connection connection = null;
 
-	private static final String PROPERTIES_FILE = "/com/sdzee/dao/dao.properties";
+	private static final String PROPERTIES_FILE = "/com/cda/jee/crypto/dao/db.properties";
 	private static final String PROPERTY_URL = "url";
 	private static final String PROPERTY_DRIVER = "driver";
-	private static final String PROPERTY_USERNAME = "nomutilisateur";
-	private static final String PROPERTY_PASSWORD = "motdepasse";
+	private static final String PROPERTY_USERNAME = "username";
+	private static final String PROPERTY_PASSWORD = "password";
 
 	private String url;
 	private String username;
 	private String password;
 
-	DaoFactory(String url, String username, String password) {
+	private DaoConnection(String url, String username, String password) {
 		this.url = url;
 		this.username = username;
 		this.password = password;
 	}
 
+	public static DaoConnection getInstance() throws DaoConfigurationException {
+		DaoConnection result = instance;
+		if (result != null) {
+			return result;
+		}
+
+		synchronized (DaoConnection.class) {
+			if (instance == null) {
+				instance = createInstance();
+			}
+			return instance;
+		}
+	}
+
 	/*
 	 * Méthode chargée de récupérer les informations de connexion à la base de
-	 * données, charger le driver JDBC et retourner une instance de la Factory
+	 * données, charger le driver JDBC et retourner une instance
 	 */
-	public static DaoFactory getInstance() throws DaoConfigurationException {
+	private static DaoConnection createInstance() {
 		Properties properties = new Properties();
 		String url;
 		String driver;
@@ -39,14 +55,14 @@ public class DaoFactory {
 		String password;
 
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-		InputStream fichierProperties = classLoader.getResourceAsStream(PROPERTIES_FILE);
+		InputStream propertiesFile = classLoader.getResourceAsStream(PROPERTIES_FILE);
 
-		if (fichierProperties == null) {
+		if (propertiesFile == null) {
 			throw new DaoConfigurationException("Le fichier properties " + PROPERTIES_FILE + " est introuvable.");
 		}
 
 		try {
-			properties.load(fichierProperties);
+			properties.load(propertiesFile);
 			url = properties.getProperty(PROPERTY_URL);
 			driver = properties.getProperty(PROPERTY_DRIVER);
 			userName = properties.getProperty(PROPERTY_USERNAME);
@@ -61,12 +77,26 @@ public class DaoFactory {
 			throw new DaoConfigurationException("Le driver est introuvable dans le classpath.", e);
 		}
 
-		DaoFactory instance = new DaoFactory(url, userName, password);
+		DaoConnection instance = new DaoConnection(url, userName, password);
 		return instance;
 	}
 
 	/* Méthode chargée de fournir une connexion à la base de données */
-	/* package */ Connection getConnection() throws SQLException {
-		return DriverManager.getConnection(url, username, password);
+	public Connection getConnection() throws SQLException {
+		if (connection == null) {
+			connection = DriverManager.getConnection(url, username, password);
+		}
+		return connection;
+	}
+
+
+	public void stopConnection() {
+		if (connection != null) {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
