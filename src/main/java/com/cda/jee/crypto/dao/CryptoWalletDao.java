@@ -1,4 +1,6 @@
 package com.cda.jee.crypto.dao;
 
-public interface CryptoWalletDao {
+import com.cda.jee.crypto.model.CryptoWallet;
+
+public interface CryptoWalletDao extends IDao<CryptoWallet> {
 }
