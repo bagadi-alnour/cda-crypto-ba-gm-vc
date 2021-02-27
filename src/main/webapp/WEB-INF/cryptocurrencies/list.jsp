@@ -1,6 +1,3 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.cda.jee.crypto.model.CryptoCurrency" %>
-<%@ page import="java.util.ArrayList"%> 
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -17,7 +14,8 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/cryptocurrencies/list.css" />
+<link rel="stylesheet" type="text/css"
+	href="css/cryptocurrencies/list.css" />
 <title>Cryptocurrencies List</title>
 <body>
 	<div id="main" class="container-fluid">
@@ -26,31 +24,35 @@
 			</h1>
 		</div>
 		<div class="jumbotron jumbotron-fluid text-center">
-			<table class="col-md-10 table table-striped bg-light mx-auto">
-				<% ArrayList<CryptoCurrency> cryptoCurrenciesList = (ArrayList<CryptoCurrency>) request.getAttribute("cryptoCurrenciesList"); %>
-				<thead>
-					<tr>
-						<th scope="col">#id</th>
-						<th scope="col">symbol</th>
-						<th scope="col">imageUrl</th>
-						<th scope="col">name</th>
-						<th scope="col">currentPrice</th>
-						<th scope="col">lastUpdated</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% for (CryptoCurrency cryptoCurrency : cryptoCurrenciesList) { %>
-					<tr>
-						<th scope="row">1</th>
-						<td>cryptoCurrency.symbol</td>
-						<td><img src="${ cryptoCurrency.imageUrl }"></td>
-						<td>cryptoCurrency.name</td>
-						<td>cryptoCurrency.currentPrice</td>
-						<td>cryptoCurrency.lastUpdated</td>						
-					</tr>
-					<% } %>
-				</tbody>
-			</table>
+			<div
+				class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-md-around ">
+				<table class="col-md-10 table table-striped bg-light mx-auto">
+				
+					<thead>
+						<tr>
+							<th scope="col">#id</th>
+							<th scope="col">Symbol</th>
+							<th scope="col">Name</th>
+							<th scope="col">Current Price</th>
+							<th scope="col">Last Update</th>
+							<th scope="col">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${ cryptoCurrenciesList }" var="cryptoCurrency"> 
+						<tr>
+							<td>${cryptoCurrency.getIdCrypto()}</td>
+							<td>${cryptoCurrency.getSymbol()}</td>
+							<td><img src="${ cryptoCurrency.getImageUrl() }">&nbsp;${ cryptoCurrency.getName() }</td>
+							<td>${cryptoCurrency.getCurrentPrice()}</td>
+							<td>${cryptoCurrency.getLastUpdated()}</td>
+							<td><i class="fas fa-plus-circle"></i><i class="far fa-edit"></i><i
+								class="fas fa-trash-alt"></i></td>
+						</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 
