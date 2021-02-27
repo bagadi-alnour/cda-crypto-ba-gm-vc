@@ -26,7 +26,6 @@
 			<div
 				class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-md-around ">
 				<table class="col-md-10 table table-striped bg-light mx-auto">
-
 					<thead>
 						<tr>
 							<th scope="col">#id</th>
@@ -59,7 +58,6 @@
 			</div>
 		</div>
 	</div>
-
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>

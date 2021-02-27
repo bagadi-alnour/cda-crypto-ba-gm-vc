@@ -1,4 +1,3 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,8 +36,8 @@
 							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 								adipiscing elit. Maecenas non ante non urna molestie facilisis.
 								Morbi nibh odio, viverra eget imperdiet eu, aliquam in nulla.
-								Morbi velit erat, euismod a erat lacinia, aliquet laoreet leo.</p>							<a href="cryptocurrencies" class="btn btn-info">Check the
-								dashboard</a>
+								Morbi velit erat, euismod a erat lacinia, aliquet laoreet leo.</p>	
+								<a href="cryptocurrencies" class="btn btn-info">Check the dashboard</a>
 						</div>
 					</div>
 					<div class="card col-10 col-md-5 mt-3 mt-md-0 pt-5">
@@ -51,7 +50,7 @@
 								adipiscing elit. Maecenas non ante non urna molestie facilisis.
 								Morbi nibh odio, viverra eget imperdiet eu, aliquam in nulla.
 								Morbi velit erat, euismod a erat lacinia, aliquet laoreet leo.</p>
-							<a href="#" class="btn btn-info">Check the dashboard</a>
+							<a href="wallets" class="btn btn-info">Check the dashboard</a>
 						</div>
 
 					</div>
