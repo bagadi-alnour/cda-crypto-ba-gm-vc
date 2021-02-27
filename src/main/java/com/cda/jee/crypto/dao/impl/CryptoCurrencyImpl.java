@@ -1,4 +1,4 @@
-package com.cda.jee.crypto.daoImpl;
+package com.cda.jee.crypto.dao.impl;
 
-public class CryptoCurrncyImpl {
+public class CryptoCurrencyImpl {
 }
