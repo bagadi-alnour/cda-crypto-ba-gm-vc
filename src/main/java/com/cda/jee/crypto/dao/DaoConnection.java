@@ -13,7 +13,7 @@ public class DaoConnection {
 	private static volatile DaoConnection instance;
 	private Connection connection = null;
 
-	private static final String PROPERTIES_FILE = "/com/cda/jee/crypto/dao/db.properties";
+	private static final String PROPERTIES_FILE = "/db.properties";
 	private static final String PROPERTY_URL = "url";
 	private static final String PROPERTY_DRIVER = "driver";
 	private static final String PROPERTY_USERNAME = "username";
@@ -54,8 +54,7 @@ public class DaoConnection {
 		String userName;
 		String password;
 
-		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-		InputStream propertiesFile = classLoader.getResourceAsStream(PROPERTIES_FILE);
+		InputStream propertiesFile  = DaoConnection.class.getResourceAsStream(PROPERTIES_FILE);
 
 		if (propertiesFile == null) {
 			throw new DaoConfigurationException("Le fichier properties " + PROPERTIES_FILE + " est introuvable.");
@@ -82,13 +81,16 @@ public class DaoConnection {
 	}
 
 	/* Méthode chargée de fournir une connexion à la base de données */
-	public Connection getConnection() throws SQLException {
+	public Connection getConnection() {
 		if (connection == null) {
-			connection = DriverManager.getConnection(url, username, password);
+			try {
+				connection = DriverManager.getConnection(url, username, password);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return connection;
 	}
-
 
 	public void stopConnection() {
 		if (connection != null) {
@@ -99,4 +101,9 @@ public class DaoConnection {
 			}
 		}
 	}
+	
+//	public static void main(String[] args) {
+//		Connection conn = DaoConnection.getInstance().getConnection();
+//		System.out.println(conn.toString());
+//	}
 }
