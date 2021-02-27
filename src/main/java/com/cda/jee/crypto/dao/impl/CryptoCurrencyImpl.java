@@ -1,9 +1,5 @@
 package com.cda.jee.crypto.dao.impl;
 
-<<<<<<< HEAD
-public class CryptoCurrencyImpl {
-	
-=======
 import java.util.List;
 import java.util.Optional;
 
@@ -42,5 +38,4 @@ public class CryptoCurrencyImpl implements CryptoCurrencyDao {
 		// TODO Auto-generated method stub
 
 	}
->>>>>>> b75140c... Add implementations of DAO and personalized exceptions to IDao
 }
