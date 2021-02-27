@@ -16,12 +16,11 @@
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
 	href="css/list.css" />
-<title>Cryptocurrencies List</title>
+<title>Wallets List</title>
 <body>
 	<div id="main" class="container-fluid">
 		<div class="row justify-content-center">
-			<h1 class="text-center text-uppercase mt-3">my crypto currencies
-			</h1>
+			<h1 class="text-center text-uppercase mt-3">my wallets</h1>
 		</div>
 		<div class="jumbotron jumbotron-fluid text-center">
 			<div
@@ -31,23 +30,21 @@
 					<thead>
 						<tr>
 							<th scope="col">#id</th>
-							<th scope="col">Symbol</th>
-							<th scope="col">Name</th>
-							<th scope="col">Current Price</th>
-							<th scope="col">Delta</th>
-							<th scope="col">Last Update</th>
+							<th scope="col">#idCrypto</th>
+							<th scope="col">Purchase Price</th>
+							<th scope="col">Quantity</th>
+							<th scope="col">Purchase Date</th>
 							<th scope="col">Actions</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${ cryptoCurrenciesList }" var="cryptoCurrency">
+						<c:forEach items="${ cryptoWalletsList }" var="wallet">
 							<tr>
-								<td>${cryptoCurrency.getIdCrypto()}</td>
-								<td>${cryptoCurrency.getSymbol()}</td>
-								<td><img src="${ cryptoCurrency.getImageUrl() }">&nbsp;${ cryptoCurrency.getName() }</td>
-								<td>${cryptoCurrency.getCurrentPrice()}</td>
-								<td><i class="fas fa-chart-line"></i></td>
-								<td>${cryptoCurrency.getLastUpdated()}</td>
+								<td>${wallet.getIdWallet()}</td>
+								<td>${wallet.getIdCrypto()}</td>
+								<td>${ wallet.getPurchasePrice()}</td>
+								<td>${wallet.getQuantity()}</td>						
+								<td>${wallet.getPurchaseDate()}</td>
 								<td>
 									<div class="row justify-content-around">
 										<i class="fas fa-plus-circle"></i><i
