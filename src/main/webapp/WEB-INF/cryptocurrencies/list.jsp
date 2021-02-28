@@ -23,6 +23,11 @@
 			</h1>
 		</div>
 		<div class="jumbotron jumbotron-fluid text-center">
+				<div class="row justify-content-center mb-3">
+					<div class="col-2 btn btn-info">				
+						<i class="fas fa-plus-circle"></i>&nbsp;Crypto Currency 
+					</div>
+				</div>
 			<div
 				class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-md-around ">
 				<table class="col-md-10 table table-striped bg-light mx-auto">
@@ -50,8 +55,7 @@
 								<td><i class="fas fa-chart-line"></i></td>
 								<td>${ cryptoCurrency.getLastUpdated() }</td>
 								<td>
-									<div class="row justify-content-around">
-										<i class="fas fa-plus-circle"></i> 
+									<div class="row justify-content-around">										
 										<a href="${ cryptoCurrencyEdit }?id=${ cryptoCurrency.getIdCrypto() }"><i class="far fa-edit"></i></a> 
 										<a href="${ cryptoCurrencyDelete }?id=${ cryptoCurrency.getIdCrypto() }"><i class="fas fa-trash-alt"></i></a>
 									</div>
