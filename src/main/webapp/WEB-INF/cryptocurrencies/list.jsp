@@ -14,8 +14,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="css/list.css" />
+<link rel="stylesheet" type="text/css" href="css/list.css" />
 <title>Cryptocurrencies List</title>
 <body>
 	<div id="main" class="container-fluid">
@@ -41,18 +40,20 @@
 					</thead>
 					<tbody>
 						<c:forEach items="${ cryptoCurrenciesList }" var="cryptoCurrency">
+						<c:url value="/cryptocurrency-edit" var="cryptoCurrencyEdit"></c:url>
+						<c:url value="/cryptocurrency-delete" var="cryptoCurrencyDelete"></c:url>
 							<tr>
-								<td>${cryptoCurrency.getIdCrypto()}</td>
-								<td>${cryptoCurrency.getSymbol()}</td>
+								<td>${ cryptoCurrency.getIdCrypto() }</td>
+								<td>${ cryptoCurrency.getSymbol()}</td>
 								<td><img src="${ cryptoCurrency.getImageUrl() }">&nbsp;${ cryptoCurrency.getName() }</td>
-								<td>${cryptoCurrency.getCurrentPrice()}</td>
+								<td>${ cryptoCurrency.getCurrentPrice() }</td>
 								<td><i class="fas fa-chart-line"></i></td>
-								<td>${cryptoCurrency.getLastUpdated()}</td>
+								<td>${ cryptoCurrency.getLastUpdated() }</td>
 								<td>
 									<div class="row justify-content-around">
-										<i class="fas fa-plus-circle"></i><i
-											class="far fa-edit"></i><i
-											class="fas fa-trash-alt"></i>
+										<i class="fas fa-plus-circle"></i> 
+										<a href="${ cryptoCurrencyEdit }?id=${ cryptoCurrency.id }"><i class="far fa-edit"></i></a> 
+										<a href="${ cryptoCurrencyDelete }?id=${ cryptoCurrency.id }"><i class="fas fa-trash-alt"></i></a>
 									</div>
 								</td>
 							</tr>
