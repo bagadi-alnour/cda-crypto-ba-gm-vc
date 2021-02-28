@@ -28,13 +28,13 @@ public class CryptoWalletImpl implements CryptoWalletDao {
 	}
 
 	@Override
-	public void update(CryptoWallet t, String[] params) throws DaoException {
+	public void update(CryptoWallet cryptoWallet , int id) throws DaoException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delete(CryptoWallet t) throws DaoException {
+	public void delete(int  id) throws DaoException {
 		// TODO Auto-generated method stub
 		
 	}

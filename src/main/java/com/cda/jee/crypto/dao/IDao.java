@@ -13,7 +13,7 @@ public interface IDao<T> {
     
     void save(T t) throws DaoException;
     
-    void update(T t, String[] params) throws DaoException;
+    void update(T t, int params) throws DaoException;
     
-    void delete(T t) throws DaoException;
+    void delete(int id) throws DaoException;
 }
