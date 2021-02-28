@@ -11,6 +11,27 @@ import java.util.List;
 import java.util.Optional;
 
 public class CryptoWalletImpl implements CryptoWalletDao {
+    public static void main(String[] args) {
+        CryptoCurrencyImpl cc = new CryptoCurrencyImpl();
+        ArrayList<Integer> delta = cc.delta();
+        System.out.println( "blal" +delta.toString());
+
+    }
+
+    public ArrayList<Integer> delta() {
+        ArrayList<Integer> delta = new ArrayList<Integer>();
+        try {
+            ps = conn.prepareStatement("select (currentPrice - cw.purchasePrice) from cryptoCurrency cc join cryptoWallet cw  using(idCrypto)");
+            rs = ps.executeQuery();
+            if(rs.next()) {
+                delta.add(rs.getInt(1));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return delta;
+    }
+
     Connection conn = DaoConnection.getInstance().getConnection();
     PreparedStatement ps;
     ResultSet rs;
@@ -58,6 +79,7 @@ public class CryptoWalletImpl implements CryptoWalletDao {
         return cryptoWallets;
     }
 
+
     @Override
     public void save(CryptoWallet cW) throws DaoException {
         try {
@@ -92,6 +114,7 @@ public class CryptoWalletImpl implements CryptoWalletDao {
         }
     }
 
+
     @Override
     public boolean delete(int id) throws DaoException {
     	boolean res = false;
@@ -108,4 +131,6 @@ public class CryptoWalletImpl implements CryptoWalletDao {
         }
 		return  res;
     }
+
+
 }
