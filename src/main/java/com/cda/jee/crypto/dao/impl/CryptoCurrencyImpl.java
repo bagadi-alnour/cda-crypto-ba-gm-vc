@@ -105,13 +105,16 @@ public class CryptoCurrencyImpl implements CryptoCurrencyDao {
     }
 
     @Override
-    public void delete(int id) throws DaoException {
+    public boolean delete(int id) throws DaoException {
+        boolean res = false;
         try {
             ps = conn.prepareStatement("delete from cryptoCurrency where idCrypto = ?");
             ps.setInt(1,id);
             ps.executeUpdate();
+            res = true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return  res;
     }
 }

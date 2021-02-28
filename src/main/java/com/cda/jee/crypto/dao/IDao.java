@@ -15,5 +15,5 @@ public interface IDao<T> {
     
     void update(T t, int params) throws DaoException;
     
-    void delete(int id) throws DaoException;
+    boolean delete(int id) throws DaoException;
 }
