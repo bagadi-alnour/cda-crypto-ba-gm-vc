@@ -85,8 +85,6 @@ public class CryptoCurrencyImpl implements CryptoCurrencyDao {
 		} catch (SQLException throwables) {
 			throwables.printStackTrace();
 		}
-
-
 	}
 
     @Override
@@ -115,7 +113,5 @@ public class CryptoCurrencyImpl implements CryptoCurrencyDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
-
     }
 }
