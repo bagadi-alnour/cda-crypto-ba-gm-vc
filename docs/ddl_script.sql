@@ -1,4 +1,9 @@
 use crypto_db;
+set names utf8;
+
+DROP TABLE IF EXISTS `cryptoCurrency`;
+DROP TABLE IF EXISTS `cryptoWallet`;
+
 CREATE TABLE `cryptoCurrency` (
     `idCrypto` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(50) NOT NULL DEFAULT 'N/D',
