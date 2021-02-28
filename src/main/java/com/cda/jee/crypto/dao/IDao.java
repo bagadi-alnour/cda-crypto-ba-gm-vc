@@ -1,5 +1,6 @@
 package com.cda.jee.crypto.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,4 +17,6 @@ public interface IDao<T> {
     void update(T t, int params) throws DaoException;
     
     boolean delete(int id) throws DaoException;
+
+    ArrayList<Integer> delta();
 }
