@@ -17,10 +17,9 @@ public class CryptoCurrencyImpl implements CryptoCurrencyDao {
     ResultSet rs;
 
     public static void main(String[] args) {
-
-        CryptoCurrencyImpl cc = new CryptoCurrencyImpl();
+        CryptoCurrencyImpl cryptoCurrency = new CryptoCurrencyImpl();
+        cryptoCurrency.update(new CryptoCurrency(2,"update from doa","upd",23,"url",LocalDateTime.of(2020,11, 22,12,23,43)),2);
     }
-
     @Override
     public Optional<CryptoCurrency> get(int id) throws DaoException {
         CryptoCurrency cryptoCurrency = null;
@@ -100,6 +99,7 @@ public class CryptoCurrencyImpl implements CryptoCurrencyDao {
             ps.setString(4,cryptoCurrency.getImageUrl());
             ps.setTimestamp(5,Timestamp.valueOf(cryptoCurrency.getLastUpdated()));
             ps.setInt(6,id);
+            ps.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
