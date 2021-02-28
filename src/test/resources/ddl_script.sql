@@ -1,6 +1,3 @@
-use crypto_db;
-set names utf8;
-
 DROP TABLE IF EXISTS `cryptoCurrency`;
 DROP TABLE IF EXISTS `cryptoWallet`;
 
