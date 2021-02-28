@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -19,18 +18,6 @@ public class CryptoWalletImpl implements CryptoWalletDao {
 	Connection conn = DaoConnection.getInstance().getConnection();
 	PreparedStatement ps;
 	ResultSet rs;
-
-	public static void main(String[] args) {
-		CryptoWalletImpl cWImp = new CryptoWalletImpl();
-		CryptoWallet cW1 =  new CryptoWallet(0, 1, 1000.0, 0.5, LocalDateTime.of(2010, 5, 10, 15, 3));
-		CryptoWallet cW2 =  new CryptoWallet(0, 2, 500.0, 0.10, LocalDateTime.of(2019, 5, 10, 15, 3));
-		
-		cWImp.save(cW1);
-		System.out.println(cWImp.getAll());
-		
-		cWImp.update(cW2, 3);
-		System.out.println(cWImp.getAll());
-	}
 
 	@Override
 	public Optional<CryptoWallet> get(int id) throws DaoException {
