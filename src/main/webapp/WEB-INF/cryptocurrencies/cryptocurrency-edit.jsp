@@ -15,51 +15,52 @@
 	href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/list.css" />
-<title>Cryptocurrencies List</title>
+<title>Cryptocurrency Edit</title>
 <body>
 	<div id="main" class="container-fluid">
 		<div class="row justify-content-center">
-			<h1 class="text-center text-uppercase mt-3">my crypto currencies
-			</h1>
+			<h1 class="text-center text-uppercase mt-3">my crypto currency</h1>
 		</div>
 		<div class="jumbotron jumbotron-fluid text-center">
 			<div
 				class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-md-around ">
-				<table class="col-md-10 table table-striped bg-light mx-auto">
-
-					<thead>
-						<tr>
-							<th scope="col">#id</th>
-							<th scope="col">Symbol</th>
-							<th scope="col">Name</th>
-							<th scope="col">Current Price</th>
-							<th scope="col">Delta</th>
-							<th scope="col">Last Update</th>
-							<th scope="col">Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${ cryptoCurrenciesList }" var="cryptoCurrency">
+				<c:choose>
+					<c:when test="${ isFound }">
 						<c:url value="/cryptocurrency-edit" var="cryptoCurrencyEdit"></c:url>
-						<c:url value="/cryptocurrency-delete" var="cryptoCurrencyDelete"></c:url>
-							<tr>
-								<td>${ cryptoCurrency.getIdCrypto() }</td>
-								<td>${ cryptoCurrency.getSymbol()}</td>
-								<td><img src="${ cryptoCurrency.getImageUrl() }">&nbsp;${ cryptoCurrency.getName() }</td>
-								<td>${ cryptoCurrency.getCurrentPrice() }</td>
-								<td><i class="fas fa-chart-line"></i></td>
-								<td>${ cryptoCurrency.getLastUpdated() }</td>
-								<td>
-									<div class="row justify-content-around">
-										<i class="fas fa-plus-circle"></i> 
-										<a href="${ cryptoCurrencyEdit }?id=${ cryptoCurrency.getIdCrypto() }"><i class="far fa-edit"></i></a> 
-										<a href="${ cryptoCurrencyDelete }?id=${ cryptoCurrency.getIdCrypto() }"><i class="fas fa-trash-alt"></i></a>
-									</div>
-								</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+						<form id="editForm" name="editForm" class="col-12 col-md-6" action="${cryptoCurrencyEdit}?id=${cryptoCurrency.getIdCrypto()}" method="post">
+							<div class="form-group text-left">
+								<label for="name">Name</label>
+								<input class="form-control" type="text" id="name" name="name"
+									value="${ cryptoCurrency.getName() }" >
+							</div>
+						 	<div class="form-group text-left">
+								<label for="symbol">Symbol</label>
+								<input class="form-control" type="text" id="symbol" name="symbol"
+									value="${ cryptoCurrency.getSymbol() }">
+							</div>
+							<div class="form-group text-left">
+								<label for="currentPrice">Current Price</label>
+								<input class="form-control" type="decimal" id="currentPrice" name="currentPrice"
+									value="${ cryptoCurrency.getCurrentPrice() }">							
+							</div>
+							<div class="form-group text-left">
+								<label for="imageUrl">Image Url</label>
+								<input class="form-control" type="text" id="imageUrl" name="imageUrl"
+									value="${ cryptoCurrency.getImageUrl() }">
+							</div>
+							<div class="form-group text-left">
+								<label for="lastUpdated">Last Update</label>
+								<input class="form-control" type="text" id="lastUpdated" name="lastUpdated"
+									value="${ cryptoCurrency.getLastUpdated() }">
+							</div>
+							<input type="hidden" name="id" value="${ cryptoCurrency.getIdCrypto() }">
+							<input type="submit" class="btn btn-warning" value="Edit">
+						</form>
+					</c:when>
+					<c:otherwise>
+						<p>No corresponding crypto currency found !</p>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 	</div>

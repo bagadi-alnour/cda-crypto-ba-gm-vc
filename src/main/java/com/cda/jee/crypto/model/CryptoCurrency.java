@@ -20,8 +20,8 @@ public class CryptoCurrency {
 	private double currentPrice;
 	private String imageUrl;
 	private LocalDateTime lastUpdated;
-	
 	private static List<CryptoCurrency> cryptoCurrenciesList = new ArrayList<>();
+	
 	public static List<CryptoCurrency> getCryptoCurrenciesList() {
 		return cryptoCurrenciesList;
 	}
