@@ -26,7 +26,7 @@
 		<dependency>
 			<groupId>javax.mvc</groupId>
 			<artifactId>javax.mvc-api</artifactId>
-			<version>1.0.0</version>
+			<version>1.0-pr</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -46,7 +46,6 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
@@ -55,7 +54,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.16</version>
+			<version>1.18.18</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
