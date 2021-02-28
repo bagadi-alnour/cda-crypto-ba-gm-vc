@@ -21,3 +21,6 @@ insert into cryptoCurrency (name, symbol, currentPrice, imageUrl, lastUpdated) v
 insert into cryptoCurrency (name, symbol, currentPrice, imageUrl, lastUpdated) values("Monero","xmr",179.22,"https://assets.coingecko.com/coins/images/69/small/monero_logo.png?1547033729","2021-02-27 18:59:00");
 
 
+INSERT INTO `cryptoWallet` (`idCrypto`,`purchasePrice`,`quantity`,`purchaseDate`) VALUES ( 1, 19589.0, 0.5,'2021-02-27 18:59:00');
+INSERT INTO `cryptoWallet` (`idCrypto`,`purchasePrice`,`quantity`,`purchaseDate`) VALUES ( 2, 620.89, 0.5,'2021-02-27 18:59:00');
+INSERT INTO `cryptoWallet` (`idCrypto`,`purchasePrice`,`quantity`,`purchaseDate`) VALUES ( 3, 0.595, 0.5,'2021-02-27 18:59:00');
