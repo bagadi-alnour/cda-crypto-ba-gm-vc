@@ -105,8 +105,12 @@ public class CryptoCurrencyImpl implements CryptoCurrencyDao {
     }
 
     @Override
+<<<<<<< HEAD
     public boolean delete(int id) throws DaoException {
         boolean res = false;
+=======
+    public void delete(int id) throws DaoException { 	
+>>>>>>> 5187a86 (Ajout de la fonctionnalité delete pour les crypto currencies)
         try {
             ps = conn.prepareStatement("delete from cryptoCurrency where idCrypto = ?");
             ps.setInt(1,id);
