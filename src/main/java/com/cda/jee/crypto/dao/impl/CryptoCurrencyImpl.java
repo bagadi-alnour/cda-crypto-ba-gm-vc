@@ -42,11 +42,7 @@ public class CryptoCurrencyImpl implements CryptoCurrencyDao {
 
     }
 
-    public static void main(String[] args) {
-        CryptoCurrencyImpl cc = new CryptoCurrencyImpl();
-        List<CryptoCurrency> all = cc.getAll();
-        all.forEach(System.out::println);
-    }
+
     @Override
     public List<CryptoCurrency> getAll() throws DaoException {
         List<CryptoCurrency> cryptoCurrencies = new ArrayList<>();
