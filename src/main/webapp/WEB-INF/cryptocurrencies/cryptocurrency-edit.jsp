@@ -50,11 +50,11 @@
 							</div>
 							<div class="form-group text-left">
 								<label for="lastUpdated">Last Update</label>
-								<input class="form-control" type="text" id="lastUpdated" name="lastUpdated"
+								<input class="form-control" type="datetime-local" id="lastUpdated" name="lastUpdated"
 									value="${ cryptoCurrency.getLastUpdated() }">
 							</div>
 							<input type="hidden" name="id" value="${ cryptoCurrency.getIdCrypto() }">
-							<input type="submit" class="btn btn-warning" value="Edit">
+							<input type="submit" class="btn btn-success" value="Edit">
 						</form>
 					</c:when>
 					<c:otherwise>

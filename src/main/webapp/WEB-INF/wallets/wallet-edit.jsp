@@ -40,11 +40,11 @@
 							</div>
 							<div class="form-group text-left">
 								<label for="imageUrl">Image Url</label>
-								<input class="form-control" type="text" id="purchaseDate" name="purchaseDate"
+								<input class="form-control" type="datetime-local" id="purchaseDate" name="purchaseDate"
 									value="${ cryptoWallet.getPurchaseDate() }">
 							</div>							
 							<input type="hidden" name="id" value="${ cryptoWallet.getIdWallet() }">
-							<input type="submit" class="btn btn-warning" value="Edit">
+							<input type="submit" class="btn btn-success" value="Edit">
 						</form>
 					</c:when>
 					<c:otherwise>

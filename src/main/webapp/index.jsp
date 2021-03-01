@@ -19,9 +19,9 @@
 <title>Crypto Currencies BA-VC-GM</title>
 </head>
 <body>
-	<div id="main" class="container-fluid">
+	<div id="main" class="container-fluid bg-dark">
 		<div class="row justify-content-center">
-			<h1 class="text-center text-uppercase mt-3">my crypto currency
+			<h1 class="text-center text-uppercase text-white mt-3">my crypto currency
 				interface</h1>
 			<div class="jumbotron jumbotron-fluid">
 				<div
@@ -37,7 +37,7 @@
 								adipiscing elit. Maecenas non ante non urna molestie facilisis.
 								Morbi nibh odio, viverra eget imperdiet eu, aliquam in nulla.
 								Morbi velit erat, euismod a erat lacinia, aliquet laoreet leo.</p>	
-								<a href="cryptocurrencies" class="btn btn-info">Check the dashboard</a>
+								<a href="cryptocurrencies" class="btn btn-primary">Check the dashboard</a>
 						</div>
 					</div>
 					<div class="card col-10 col-md-5 mt-3 mt-md-0 pt-5">
@@ -50,7 +50,7 @@
 								adipiscing elit. Maecenas non ante non urna molestie facilisis.
 								Morbi nibh odio, viverra eget imperdiet eu, aliquam in nulla.
 								Morbi velit erat, euismod a erat lacinia, aliquet laoreet leo.</p>
-							<a href="wallets" class="btn btn-info">Check the dashboard</a>
+							<a href="wallets" class="btn btn-primary">Check the dashboard</a>
 						</div>
 
 					</div>

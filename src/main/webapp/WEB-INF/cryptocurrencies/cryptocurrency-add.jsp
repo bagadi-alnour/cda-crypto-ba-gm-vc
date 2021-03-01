@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -47,10 +48,10 @@
 					</div>
 					<div class="form-group text-left">
 						<label for="lastUpdated">Last Update</label> <input
-							class="form-control" type="text" id="lastUpdated"
+							class="form-control" type="datetime-local" id="lastUpdated"
 							name="lastUpdated">
 					</div>
-					<input type="submit" class="btn btn-warning" value="Save">
+					<input type="submit" class="btn btn-success" value="Save">
 				</form>
 			</div>
 		</div>
