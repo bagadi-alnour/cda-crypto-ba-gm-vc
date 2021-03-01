@@ -18,5 +18,9 @@ public interface IDao<T> {
     
     boolean delete(int id) throws DaoException;
 
-    ArrayList<Integer> delta();
+//    void findCryptoCurrencyByName(String name) throws DaoException;
+//
+//    void findCry
+//
+
 }
