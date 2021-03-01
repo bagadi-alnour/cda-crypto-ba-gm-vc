@@ -17,7 +17,7 @@ public class CryptoCurrency {
 	private int idCrypto;
 	private String name;
 	private String symbol;
-	private int delta;
+	private double delta;
 	private double currentPrice;
 	private String imageUrl;
 	private LocalDateTime lastUpdated;

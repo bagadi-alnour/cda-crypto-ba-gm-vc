@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -45,6 +46,7 @@
 					</thead>
 					<tbody>
 						<c:forEach items="${ cryptoCurrenciesList }" var="cryptoCurrency">
+							<fmt:parseDate  value="${ cryptoCurrency.getLastUpdated() }"  type="date" pattern="yyyy-MM-dd" var="parsedDate" />
 							<c:url value="/cryptocurrency-edit" var="cryptoCurrencyEdit"></c:url>
 							<c:url value="/cryptocurrency-delete" var="cryptoCurrencyDelete"></c:url>
 							<tr>
@@ -64,7 +66,7 @@
 									</c:otherwise>
 								</c:choose>
 									
-									<td>${ cryptoCurrency.getLastUpdated() }</td>
+									<td><fmt:formatDate value="${ parsedDate }" type="both" pattern="dd.MM.yyyy HH:mm:ss"/></td></td>
 									<td>
 										<div class="row justify-content-around">
 											<a

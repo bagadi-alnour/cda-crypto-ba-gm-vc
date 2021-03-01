@@ -47,7 +47,7 @@ public class CryptoCurrencyImpl implements CryptoCurrencyDao {
         List<CryptoCurrency> cryptoCurrencies = new ArrayList<>();
         try {
             ps = conn.prepareStatement(
-                    "select cc.idCrypto, name, symbol, (cw.purchasePrice  - cc.currentPrice) AS delta,currentPrice, imageUrl, lastUpdated from cryptoCurrency cc left join cryptoWallet cw using(idCrypto)"
+                    "select * from cryptoCurrency"
             );
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -103,6 +103,17 @@ public class CryptoCurrencyImpl implements CryptoCurrencyDao {
             throwables.printStackTrace();
         }
 
+    }
+    
+    public void updateDelta(int idCrypto, double newDelta) {
+    	try {
+            ps = conn.prepareStatement("update cryptoCurrency set  delta = ? where idCrypto = ?");
+            ps.setDouble(1, newDelta);           
+            ps.setInt(2, idCrypto);
+            ps.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     @Override
