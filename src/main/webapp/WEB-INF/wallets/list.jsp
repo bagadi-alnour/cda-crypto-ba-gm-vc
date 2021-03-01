@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -44,13 +45,14 @@
 					</thead>
 					<tbody>
 						<c:forEach items="${ cryptoWalletsList }" var="wallet">
+							<fmt:parseDate  value="${ wallet.getPurchaseDate() }"  type="date" pattern="yyyy-MM-dd" var="parsedDate" />
 							<c:url value="/wallet-edit" var="cryptoWalletEdit"></c:url>
 							<tr>
 								<td>${ wallet.getIdWallet() }</td>
 								<td>${ wallet.getIdCrypto() }</td>
 								<td>${ wallet.getPurchasePrice() }</td>
 								<td>${ wallet.getQuantity() }</td>
-								<td>${ wallet.getPurchaseDate() }</td>
+								<td><fmt:formatDate value="${ parsedDate }" type="both" pattern="dd.MM.yyyy HH:mm:ss"/></td>
 								<td>
 									<div class="row justify-content-around">
 										<a href="${ cryptoWalletEdit }?id=${ wallet.getIdWallet() }"><i
