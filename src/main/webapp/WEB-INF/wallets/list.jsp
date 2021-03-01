@@ -14,8 +14,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="css/list.css" />
+<link rel="stylesheet" type="text/css" href="css/list.css" />
 <title>Wallets List</title>
 <body>
 	<div id="main" class="container-fluid">
@@ -23,6 +22,13 @@
 			<h1 class="text-center text-uppercase mt-3">my wallets</h1>
 		</div>
 		<div class="jumbotron jumbotron-fluid text-center">
+			<div class="row justify-content-center mb-3">
+				<div class="col-2">
+					<a href="wallet-add" class="btn btn-info"><i
+						class="fas fa-plus-circle"></i>&nbsp;Crypto Wallet</a>
+				</div>
+			</div>
+
 			<div
 				class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-md-around ">
 				<table class="col-md-10 table table-striped bg-light mx-auto">
@@ -38,18 +44,17 @@
 					</thead>
 					<tbody>
 						<c:forEach items="${ cryptoWalletsList }" var="wallet">
-						<c:url value="/wallet-edit" var="cryptoWalletEdit"></c:url>
+							<c:url value="/wallet-edit" var="cryptoWalletEdit"></c:url>
 							<tr>
 								<td>${ wallet.getIdWallet() }</td>
 								<td>${ wallet.getIdCrypto() }</td>
 								<td>${ wallet.getPurchasePrice() }</td>
-								<td>${ wallet.getQuantity() }</td>						
+								<td>${ wallet.getQuantity() }</td>
 								<td>${ wallet.getPurchaseDate() }</td>
 								<td>
 									<div class="row justify-content-around">
 										<a href="${ cryptoWalletEdit }?id=${ wallet.getIdWallet() }"><i
-												class="far fa-edit"></i></a><i
-											class="fas fa-trash-alt"></i>
+											class="far fa-edit"></i></a><i class="fas fa-trash-alt"></i>
 									</div>
 								</td>
 							</tr>

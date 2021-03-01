@@ -11,7 +11,7 @@ import com.cda.jee.crypto.dao.impl.CryptoWalletImpl;
 import com.cda.jee.crypto.model.CryptoWallet;
 
 @WebServlet("/wallets")
-public class WalletController extends HttpServlet {
+public class WalletList extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 

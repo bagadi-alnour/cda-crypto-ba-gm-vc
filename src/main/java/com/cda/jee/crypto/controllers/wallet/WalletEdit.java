@@ -10,10 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.cda.jee.crypto.dao.impl.CryptoCurrencyImpl;
 import com.cda.jee.crypto.dao.impl.CryptoWalletImpl;
-import com.cda.jee.crypto.model.CryptoCurrency;
 import com.cda.jee.crypto.model.CryptoWallet;
 
 @WebServlet("/wallet-edit")
