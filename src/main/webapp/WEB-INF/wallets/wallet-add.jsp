@@ -44,7 +44,7 @@
 					</div>
 					<div class="form-group text-left">
 						<label for="quantity">Quantity</label> <input class="form-control"
-							type="decimal" id="quantity" name="quantity"">
+							type="decimal" id="quantity" name="quantity">
 					</div>
 					<div class="form-group text-left">
 						<label for="purchaseDate">Purchase Date</label> <input

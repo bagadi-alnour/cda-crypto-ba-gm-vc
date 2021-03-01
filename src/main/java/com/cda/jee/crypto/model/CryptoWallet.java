@@ -17,4 +17,11 @@ public class CryptoWallet {
 	private double purchasePrice;
 	private double quantity;
 	private LocalDateTime purchaseDate;
+	
+	public CryptoWallet(int idCrypto, double purchasePrice, double quantity, LocalDateTime purchaseDate) {
+		this.idCrypto = idCrypto;
+		this.purchasePrice = purchasePrice;
+		this.quantity = quantity;
+		this.purchaseDate = purchaseDate;
+	}
 }

@@ -27,7 +27,7 @@ public class WalletAdd extends HttpServlet {
 		resp.setContentType("text/html");
 		req.setAttribute("cryptoWallet", new CryptoWallet());
 		CryptoCurrencyImpl cryptoCurrenciesImpl = new CryptoCurrencyImpl();
-		List<CryptoCurrency> cryptoCurrenciesList = cryptoCurrenciesImpl.getAll();
+		List<CryptoCurrency> cryptoCurrenciesList = cryptoCurrenciesImpl.getAll();		
 		req.setAttribute("cryptoCurrenciesList", cryptoCurrenciesList);		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/wallets/wallet-add.jsp").forward(req, resp);
 	}
@@ -35,8 +35,6 @@ public class WalletAdd extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
-		CryptoCurrencyImpl cryptoCurrenciesImpl = new CryptoCurrencyImpl();
-		List<CryptoCurrency> cryptoCurrenciesList = cryptoCurrenciesImpl.getAll();
 		CryptoWalletImpl cryptoWalletImpl = new CryptoWalletImpl();
 		CryptoWallet cryptoWallet = new CryptoWallet();
 		List<String> params = new ArrayList<String>(req.getParameterMap().keySet());
