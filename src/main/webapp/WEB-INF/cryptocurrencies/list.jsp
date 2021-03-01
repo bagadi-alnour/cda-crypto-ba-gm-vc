@@ -25,7 +25,8 @@
 		<div class="jumbotron jumbotron-fluid text-center">
 			<div class="row justify-content-center mb-3">
 				<div class="col-2">
-					<a href="crypto-add" class="btn btn-info"><i class="fas fa-plus-circle"></i>&nbsp;Crypto Currency</a>
+					<a href="crypto-add" class="btn btn-info"><i
+						class="fas fa-plus-circle"></i>&nbsp;Crypto Currency</a>
 				</div>
 			</div>
 			<div
@@ -51,17 +52,28 @@
 								<td>${ cryptoCurrency.getSymbol()}</td>
 								<td><img src="${ cryptoCurrency.getImageUrl() }">&nbsp;${ cryptoCurrency.getName() }</td>
 								<td>${ cryptoCurrency.getCurrentPrice() }</td>
-								<td><i class="fas fa-chart-line"></i></td>
-								<td>${ cryptoCurrency.getLastUpdated() }</td>
-								<td>
-									<div class="row justify-content-around">
-										<a
-											href="${ cryptoCurrencyEdit }?id=${ cryptoCurrency.getIdCrypto() }"><i
-											class="far fa-edit"></i></a> <a
-											href="${ cryptoCurrencyDelete }?id=${ cryptoCurrency.getIdCrypto() }"><i
-											class="fas fa-trash-alt"></i></a>
-									</div>
-								</td>
+								<c:choose>
+									<c:when test="${ cryptoCurrency.getDelta() > 0 }">
+										<td><i class="fas fa-arrow-up "></i></td>
+									</c:when>
+									<c:when test="${ cryptoCurrency.getDelta() < 0 }">
+										<td><i class="fas fa-arrow-down"></i></td>
+									</c:when>
+									<c:otherwise>
+										<td><i class="fas fa-arrow-right"></i></td>
+									</c:otherwise>
+								</c:choose>
+									
+									<td>${ cryptoCurrency.getLastUpdated() }</td>
+									<td>
+										<div class="row justify-content-around">
+											<a
+												href="${ cryptoCurrencyEdit }?id=${ cryptoCurrency.getIdCrypto() }"><i
+												class="far fa-edit"></i></a> <a
+												href="${ cryptoCurrencyDelete }?id=${ cryptoCurrency.getIdCrypto() }"><i
+												class="fas fa-trash-alt"></i></a>
+										</div>
+									</td>
 							</tr>
 						</c:forEach>
 					</tbody>
