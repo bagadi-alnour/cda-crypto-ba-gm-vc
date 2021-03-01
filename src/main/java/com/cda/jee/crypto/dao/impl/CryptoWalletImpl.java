@@ -18,19 +18,19 @@ public class CryptoWalletImpl implements CryptoWalletDao {
 
     }
 
-    public ArrayList<Integer> delta() {
-        ArrayList<Integer> delta = new ArrayList<Integer>();
-        try {
-            ps = conn.prepareStatement("select (currentPrice - cw.purchasePrice) from cryptoCurrency cc join cryptoWallet cw  using(idCrypto)");
-            rs = ps.executeQuery();
-            if(rs.next()) {
-                delta.add(rs.getInt(1));
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return delta;
-    }
+//    public ArrayList<Integer> delta() {
+//        ArrayList<Integer> delta = new ArrayList<Integer>();
+//        try {
+//            ps = conn.prepareStatement("select (currentPrice - cw.purchasePrice) from cryptoCurrency cc join cryptoWallet cw  using(idCrypto)");
+//            rs = ps.executeQuery();
+//            if(rs.next()) {
+//                delta.add(rs.getInt(1));
+//            }
+//        } catch (SQLException throwables) {
+//            throwables.printStackTrace();
+//        }
+//        return delta;
+//    }
 
     Connection conn = DaoConnection.getInstance().getConnection();
     PreparedStatement ps;
