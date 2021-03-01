@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS cryptoCurrency;
 DROP TABLE IF EXISTS cryptoWallet;
+DROP TABLE IF EXISTS cryptoCurrency;
 
 CREATE TABLE cryptoCurrency ( 
   idCrypto INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
@@ -7,7 +7,7 @@ CREATE TABLE cryptoCurrency (
   symbol VARCHAR(6) NOT NULL,
   delta DECIMAL(30,9),
   currentPrice DECIMAL(30,9) NOT NULL,
-  imageUrl VARCHAR(50),
+  imageUrl TINYTEXT,
   lastUpdated TIMESTAMP  NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY (idCrypto)
 );
