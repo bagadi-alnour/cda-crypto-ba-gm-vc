@@ -25,7 +25,7 @@ public class CryptoDelete extends HttpServlet {
 			Optional<CryptoCurrency> cryptoCurrency = cryptoCurrenciesImpl.get(Integer.parseInt(req.getParameter("id")));
 			CryptoCurrency myCrypto = cryptoCurrency.get();
 			cryptoCurrenciesImpl.delete(myCrypto.getIdCrypto());			
-			resp.sendRedirect(req.getContextPath() + "/cryptocurrencies");	
+			resp.sendRedirect(req.getContextPath() + "/wallets");	
 		}
 	}
 }

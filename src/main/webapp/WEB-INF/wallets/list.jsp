@@ -47,6 +47,7 @@
 						<c:forEach items="${ cryptoWalletsList }" var="wallet">
 							<fmt:parseDate  value="${ wallet.getPurchaseDate() }"  type="date" pattern="yyyy-MM-dd" var="parsedDate" />
 							<c:url value="/wallet-edit" var="cryptoWalletEdit"></c:url>
+							<c:url value="/wallet-delete" var="cryptoWalletDelete"></c:url>
 							<tr>
 								<td>${ wallet.getIdWallet() }</td>
 								<td>${ wallet.getIdCrypto() }</td>
@@ -56,7 +57,11 @@
 								<td>
 									<div class="row justify-content-around">
 										<a href="${ cryptoWalletEdit }?id=${ wallet.getIdWallet() }"><i
-											class="far fa-edit"></i></a><i class="fas fa-trash-alt"></i>
+											class="far fa-edit"></i></a>
+											
+										<a href="${ cryptoWalletDelete }?id=${ wallet.getIdWallet() }"><i
+											class="fas fa-trash-alt"></i></a>
+											
 									</div>
 								</td>
 							</tr>
