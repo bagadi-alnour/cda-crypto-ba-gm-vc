@@ -24,3 +24,13 @@ insert into cryptoCurrency (name, symbol, currentPrice, imageUrl, lastUpdated) v
 INSERT INTO `cryptoWallet` (`idCrypto`,`purchasePrice`,`quantity`,`purchaseDate`) VALUES ( 1, 19589.0, 0.5,'2021-02-27 18:59:00');
 INSERT INTO `cryptoWallet` (`idCrypto`,`purchasePrice`,`quantity`,`purchaseDate`) VALUES ( 2, 620.89, 0.5,'2021-02-27 18:59:00');
 INSERT INTO `cryptoWallet` (`idCrypto`,`purchasePrice`,`quantity`,`purchaseDate`) VALUES ( 3, 0.595, 0.5,'2021-02-27 18:59:00');
+
+
+
+INSERT into cryptoWallet(idCrypto, purchasePrice , quantity, purchaseDate)values(2, 1.332, 2,"2021-03-01 08:00:43");
+INSERT into cryptoWallet(idCrypto, purchasePrice , quantity, purchaseDate)values(3, 2.32, 2,"2021-03-01 08:00:43");
+INSERT into cryptoWallet(idCrypto, purchasePrice , quantity, purchaseDate)values(4, 0.2333, 2,"2021-03-01 08:00:43");
+INSERT into cryptoWallet(idCrypto, purchasePrice , quantity, purchaseDate)values(5, 182, 2,"2021-03-01 08:00:43");
+INSERT into cryptoWallet(idCrypto, purchasePrice , quantity, purchaseDate)values(6, 0.3234, 2,"2021-03-01 08:00:43");
+INSERT into cryptoWallet(idCrypto, purchasePrice , quantity, purchaseDate)values(8, 132.3, 2,"2021-03-01 08:00:43");
+INSERT into cryptoWallet(idCrypto, purchasePrice , quantity, purchaseDate)values(9, 23.34, 2,"2021-03-01 08:00:43");
