@@ -31,9 +31,9 @@
 					<div class="form-group text-left">
 						<label for="cryptoCurrency">Crypto Currency</label> 
 						<select
-							class="form-control" id="cryptoCurrency" name="">
+							class="form-control" id="cryptoCurrency" name="cryptoCurrency">
 							<c:forEach items="${ cryptoCurrenciesList }" var="cryptoCurrency">
-								<option >${ cryptoCurrency.getName() }</option>								
+								<option value="${ cryptoCurrency.getIdCrypto() }">${ cryptoCurrency.getName() }</option>								
 							</c:forEach>
 						</select>
 					</div>

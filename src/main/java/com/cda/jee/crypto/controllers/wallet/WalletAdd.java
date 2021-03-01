@@ -43,13 +43,13 @@ public class WalletAdd extends HttpServlet {
 		for (String param : params) {
 			if (!req.getParameter(param).isEmpty() && !req.getParameter(param).isBlank()) {
 				switch (param) {
-				case "cryptoCurrencyName":				
-					cryptoWallet.setIdCrypto(Integer.parseInt(req.getParameter("idCrypto")));
+				case "cryptoCurrency":	
+					cryptoWallet.setIdCrypto(Integer.parseInt(req.getParameter(param)));					
 					break;
 				case "purchasePrice":
 					cryptoWallet.setPurchasePrice(Double.parseDouble(req.getParameter(param)));						
 					break;
-				case "symbol":
+				case "quantity":
 					cryptoWallet.setQuantity(Double.parseDouble(req.getParameter(param)));						
 					break;
 				case "purchaseDate":
