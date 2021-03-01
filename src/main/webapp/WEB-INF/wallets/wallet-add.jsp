@@ -51,7 +51,7 @@
 							class="form-control" type="datetime-local" id="purchaseDate"
 							name="purchaseDate">
 					</div>
-					<input type="submit" class="btn btn-warning" value="Save">
+					<input type="submit" class="btn btn-success" value="Save">
 				</form>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 * {
-	font-family: 'Roboto Mono', monospace;
+	font-family: 'Roboto Mono', monospace;	
 }
 
 html, body, #main {
@@ -14,7 +14,7 @@ h1 {
 
 .jumbotron {
 	width:100%;
-	background-image: url("/crypto/img/cryptocurrencies.jpg");
+	background-image: url("/crypto/img/wave.svg");
 	background-size: cover;
 }
 

@@ -18,22 +18,22 @@
 <link rel="stylesheet" type="text/css" href="css/list.css" />
 <title>Wallets List</title>
 <body>
-	<div id="main" class="container-fluid">
+	<div id="main" class="container-fluid bg-dark">
 		<div class="row justify-content-center">
-			<h1 class="text-center text-uppercase mt-3">my wallets</h1>
+			<h1 class="text-center text-uppercase text-white mt-3">my wallets</h1>
 		</div>
 		<div class="jumbotron jumbotron-fluid text-center">
 			<div class="row justify-content-center mb-3">
 				<div class="col-2">
-					<a href="wallet-add" class="btn btn-info"><i
+					<a href="wallet-add" class="btn btn-light"><i
 						class="fas fa-plus-circle"></i>&nbsp;Crypto Wallet</a>
 				</div>
 			</div>
 
 			<div
 				class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-md-around ">
-				<table class="col-md-10 table table-striped bg-light mx-auto">
-					<thead>
+				<table class="col-md-10 text-left table table-striped bg-light mx-auto">
+					<thead class="bg-secondary text-white">
 						<tr>
 							<th scope="col">#idWallet</th>
 							<th scope="col">#idCrypto</th>
@@ -49,7 +49,7 @@
 							<c:url value="/wallet-edit" var="cryptoWalletEdit"></c:url>
 							<c:url value="/wallet-delete" var="cryptoWalletDelete"></c:url>
 							<tr>
-								<td>${ wallet.getIdWallet() }</td>
+								<th>${ wallet.getIdWallet() }</th>
 								<td>${ wallet.getIdCrypto() }</td>
 								<td>${ wallet.getPurchasePrice() }</td>
 								<td>${ wallet.getQuantity() }</td>
@@ -57,10 +57,10 @@
 								<td>
 									<div class="row justify-content-around">
 										<a href="${ cryptoWalletEdit }?id=${ wallet.getIdWallet() }"><i
-											class="far fa-edit"></i></a>
+											class="far fa-edit btn btn-outline-success"></i></a>
 											
 										<a href="${ cryptoWalletDelete }?id=${ wallet.getIdWallet() }"><i
-											class="fas fa-trash-alt"></i></a>
+											class="delete fas fa-trash-alt btn btn-outline-danger" data-confirm="Are you sure to delete this item: ${wallet} }?"></i></a>
 											
 									</div>
 								</td>
@@ -71,6 +71,7 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="js/delete.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>

@@ -18,22 +18,22 @@
 <link rel="stylesheet" type="text/css" href="css/list.css" />
 <title>Cryptocurrencies List</title>
 <body>
-	<div id="main" class="container-fluid">
+	<div id="main" class="container-fluid bg-dark">
 		<div class="row justify-content-center">
-			<h1 class="text-center text-uppercase mt-3">my crypto currencies
+			<h1 class="text-center text-uppercase text-white mt-3">my crypto currencies
 			</h1>
 		</div>
 		<div class="jumbotron jumbotron-fluid text-center">
 			<div class="row justify-content-center mb-3">
 				<div class="col-2">
-					<a href="crypto-add" class="btn btn-info"><i
+					<a href="crypto-add" class="btn btn-light"><i
 						class="fas fa-plus-circle"></i>&nbsp;Crypto Currency</a>
 				</div>
 			</div>
 			<div
 				class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-md-around ">
-				<table class="col-md-10 table table-striped bg-light mx-auto">
-					<thead>
+				<table class="col-12 col-md-10 text-left table table-striped bg-light mx-auto">
+					<thead class="bg-secondary text-white">
 						<tr>
 							<th scope="col">#id</th>
 							<th scope="col">Symbol</th>
@@ -50,7 +50,7 @@
 							<c:url value="/cryptocurrency-edit" var="cryptoCurrencyEdit"></c:url>
 							<c:url value="/cryptocurrency-delete" var="cryptoCurrencyDelete"></c:url>
 							<tr>
-								<td>${ cryptoCurrency.getIdCrypto() }</td>
+								<th>${ cryptoCurrency.getIdCrypto() }</th>
 								<td>${ cryptoCurrency.getSymbol()}</td>
 								<td><img src="${ cryptoCurrency.getImageUrl() }">&nbsp;${ cryptoCurrency.getName() }</td>
 								<td>${ cryptoCurrency.getCurrentPrice() }</td>
@@ -71,9 +71,9 @@
 										<div class="row justify-content-around">
 											<a
 												href="${ cryptoCurrencyEdit }?id=${ cryptoCurrency.getIdCrypto() }"><i
-												class="far fa-edit"></i></a> <a
+												class="far fa-edit btn btn-outline-success"></i></a> <a
 												href="${ cryptoCurrencyDelete }?id=${ cryptoCurrency.getIdCrypto() }"><i
-												class="fas fa-trash-alt"></i></a>
+												class="delete fas fa-trash-alt btn btn-outline-danger" data-confirm="Are you sure to delete this item: ${cryptoCurrency.getName()} ?"></i></a>
 										</div>
 									</td>
 							</tr>
@@ -83,7 +83,7 @@
 			</div>
 		</div>
 	</div>
-
+	<script type="text/javascript" src="js/delete.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
