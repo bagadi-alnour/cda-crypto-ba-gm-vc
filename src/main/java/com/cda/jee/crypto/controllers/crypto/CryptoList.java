@@ -20,6 +20,7 @@ public class CryptoList extends HttpServlet {
 		resp.setContentType("text/html");
 		CryptoCurrencyImpl cryptoCurrenciesImpl = new CryptoCurrencyImpl();
 		List<CryptoCurrency> cryptoCurrenciesList = cryptoCurrenciesImpl.getAll();
+		//traiter le delta
 		req.setAttribute("cryptoCurrenciesList", cryptoCurrenciesList);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/cryptocurrencies/list.jsp").forward(req, resp);
 	}

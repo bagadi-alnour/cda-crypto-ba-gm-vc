@@ -14,51 +14,47 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="css/list.css" />
-<title>Wallets List</title>
+<link rel="stylesheet" type="text/css" href="css/list.css" />
+<title>Crypto Wallet Edit</title>
 <body>
 	<div id="main" class="container-fluid">
 		<div class="row justify-content-center">
-			<h1 class="text-center text-uppercase mt-3">my wallets</h1>
+			<h1 class="text-center text-uppercase mt-3">my crypto wallet</h1>
 		</div>
 		<div class="jumbotron jumbotron-fluid text-center">
 			<div
 				class="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-md-around ">
-				<table class="col-md-10 table table-striped bg-light mx-auto">
-					<thead>
-						<tr>
-							<th scope="col">#idWallet</th>
-							<th scope="col">#idCrypto</th>
-							<th scope="col">Purchase Price</th>
-							<th scope="col">Quantity</th>
-							<th scope="col">Purchase Date</th>
-							<th scope="col">Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${ cryptoWalletsList }" var="wallet">
+				<c:choose>
+					<c:when test="${ isFound }">
 						<c:url value="/wallet-edit" var="cryptoWalletEdit"></c:url>
-							<tr>
-								<td>${ wallet.getIdWallet() }</td>
-								<td>${ wallet.getIdCrypto() }</td>
-								<td>${ wallet.getPurchasePrice() }</td>
-								<td>${ wallet.getQuantity() }</td>						
-								<td>${ wallet.getPurchaseDate() }</td>
-								<td>
-									<div class="row justify-content-around">
-										<a href="${ cryptoWalletEdit }?id=${ wallet.getIdWallet() }"><i
-												class="far fa-edit"></i></a><i
-											class="fas fa-trash-alt"></i>
-									</div>
-								</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+						<form id="editForm" name="editForm" class="col-12 col-md-6" action="${cryptoWalletEdit}?id=${cryptoWallet.getIdWallet()}" method="post">
+						 	<div class="form-group text-left">
+								<label for="symbol">Purchase Price</label>
+								<input class="form-control" type="text" id="purchasePrice" name="purchasePrice"
+									value="${ cryptoWallet.getPurchasePrice() }">
+							</div>
+							<div class="form-group text-left">
+								<label for="currentPrice">Quantity</label>
+								<input class="form-control" type="decimal" id="quantity" name="quantity"
+									value="${ cryptoWallet.getQuantity() }">							
+							</div>
+							<div class="form-group text-left">
+								<label for="imageUrl">Image Url</label>
+								<input class="form-control" type="text" id="purchaseDate" name="purchaseDate"
+									value="${ cryptoWallet.getPurchaseDate() }">
+							</div>							
+							<input type="hidden" name="id" value="${ cryptoWallet.getIdWallet() }">
+							<input type="submit" class="btn btn-warning" value="Edit">
+						</form>
+					</c:when>
+					<c:otherwise>
+						<p>No corresponding crypto wallet found !</p>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 	</div>
+
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
