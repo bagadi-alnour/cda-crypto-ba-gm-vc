@@ -3,6 +3,7 @@
 Crypto is a web application written in Java. It serves as an exercise for our application developer training. The aim was to master the following concepts:
 - DAO
 - Git tags
+- H2
 - JSP
 - JSTL
 - Lombok
@@ -45,7 +46,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Features not yet implemented
 
-- Delete in wallet page
+- 100% completed
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
