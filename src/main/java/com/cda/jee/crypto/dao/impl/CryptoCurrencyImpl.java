@@ -15,12 +15,6 @@ public class CryptoCurrencyImpl implements CryptoCurrencyDao {
     PreparedStatement ps;
     ResultSet rs;
 
-    public static void main(String[] args) {
-        CryptoCurrencyImpl cc = new CryptoCurrencyImpl();
-        List<CryptoCurrency> all = cc.getAll();
-        all.forEach(System.out::println);
-    }
-
     @Override
     public Optional<CryptoCurrency> get(int id) throws DaoException {
         CryptoCurrency cryptoCurrency = null;
